@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WEATHER APP</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+        color: #212529;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+      }
+      .option {
+        cursor: pointer;
+        margin-bottom: 10px;
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .option:hover {
+        background-color: #ced4da;
+      }
+      .option.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+      .content {
+        display: none;
+      }
+      .content.active {
+        display: block;
+      }
+      #home {
+        color: lightgray;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+</html>
+<body>
+    
+  <div class="container">
+    <a href="Main.html"><span id="home">Back << </span></a>
+    <h1 class="text-center" style="color:#23b4c7"> Gokul's Weather </h1>
+    <div class="option" id="howToUse">How to Use</div>
+    <div class="option" id="keyFeatures">Key Features</div>
+    <div class="option" id="description">Description</div>
+    
+    <div class="content" id="howToUseContent">
+      <h2>How to Use:</h2>
+      <ol>
+        <li>Enter the name of the city you want to check the weather for in the search bar.</li>
+        <li>Press the "Search" button or hit Enter.</li>
+        <li>The main section will update to display detailed weather information for the specified city.</li>
+        <li>Scroll down to view weather information for other popular locations.</li>
+      </ol>
+    </div>
+    
+    <div class="content" id="keyFeaturesContent">
+      <h2>Key Features:</h2>
+      <ul>
+        <li>City Search: Users can input the name of a city they want to check the weather for using the search bar in the navigation.</li>
+        <li>Weather Display: Upon submitting a city name, the app dynamically updates the main section to display detailed weather information for the specified city, including temperature, humidity, wind speed, cloud cover, sunrise, and sunset times.</li>
+        <li>Other Places: The app also provides weather data for several other popular cities, allowing users to compare weather conditions across different locations.</li>
+        <li>Responsive Design: The app is built using Bootstrap, ensuring a responsive design that adapts seamlessly to various screen sizes and devices, providing a consistent user experience.</li>
+      </ul>
+    </div>
+    
+    <div class="content" id="descriptionContent">
+      <h2>Description:</h2>
+      <p>The Weather App is a user-friendly tool that allows users to access current weather conditions, including temperature, humidity, wind speed, cloud cover, and more, for any city they choose. With an intuitive interface and clean design, users can quickly navigate through the app to find the weather information they need.</p>
+      
+      <p>With its simplicity and efficiency, the Weather App is your go-to destination for all your weather-related queries, whether you're planning a trip, checking the weather for outdoor activities, or simply staying informed about the current weather conditions.</p>
+    </div>
+  </div>
+  
+  <script>
+    const options = document.querySelectorAll('.option');
+    const contents = document.querySelectorAll('.content');
+    
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        options.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        
+        const contentId = option.id + 'Content';
+        contents.forEach(content => {
+          content.classList.remove('active');
+          if (content.id === contentId) {
+            content.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</body>
